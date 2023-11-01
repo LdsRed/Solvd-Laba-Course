@@ -4,7 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Car car = new Car("Toyota", "Camry", 2022, 25000.0, "Black", 4, 5);
+
+        Wheel[] wheels = new Wheel[5];
+        wheels[0] = new Wheel(16, "Yokohama", 7.5);
+        wheels[1] = new Wheel(16, "Yokohama", 7.5);
+        wheels[2] = new Wheel(16, "Yokohama", 7.5);
+        wheels[3] = new Wheel(16, "Yokohama", 7.5);
+        wheels[4] = new Wheel(16, "Yokohama", 7.5);
+
+
+        Engine toyotaEngine = new Engine(1500.4, "Strong engine");
+        Car car = new Car("Toyota", "Camry", 2022, 25000.0, "Black", 4, 5, toyotaEngine, wheels);
+
         Motorcycle motorcycle = new Motorcycle("Honda", "CBR500R", 2021, 8000.0, "Green", "Urban", 15);
         Truck truck = new Truck("Mercedes-Benz", "F-150", 2022, 35000.0,"White",2000, true);
         ElectricCar electricCar = new ElectricCar("Tesla", "Model X", 2023, 80000.0,"Red",4, 5, 100);

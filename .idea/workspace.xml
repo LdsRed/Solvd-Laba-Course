@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4c52165-91b2-43ff-b190-0f846010d57c" name="Changes" comment="" />
+    <list default="true" id="f4c52165-91b2-43ff-b190-0f846010d57c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,10 +12,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2XHXWH1RRCPp2KohQEm8MCqjdZs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,6 +27,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/ldsla/OneDrive/Documentos/Solvd-Laba-Course",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -37,6 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698287009630</updated>
       <workItem from="1698287011074" duration="13000" />
+      <workItem from="1698802201794" duration="17000" />
     </task>
     <servers />
   </component>
