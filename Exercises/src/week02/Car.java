@@ -1,5 +1,7 @@
 package week02;
 
+import java.util.Objects;
+
 public class Car extends Vehicle{
 
     private Engine engine;
@@ -40,5 +42,29 @@ public class Car extends Vehicle{
                 "numberOfDoors=" + numberOfDoors +
                 ", numberPassengers=" + numberPassengers +
                 '}';
+    }
+
+    @Override
+    public void startVehicle() {
+        System.out.println("Starting the car");
+    }
+
+    @Override
+    public void drive() {
+        System.out.println("The car is driving...");
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, year, price, numberOfDoors, numberPassengers);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass())return  false;
+        if (!super.equals(obj)) return false;
+        Car car = (Car) obj;
+        return numberOfDoors == car.numberOfDoors;
     }
 }

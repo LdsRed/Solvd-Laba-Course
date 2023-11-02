@@ -1,13 +1,15 @@
 package week02;
 
-public class Vehicle {
+import java.util.Objects;
 
-    private String brand;
+abstract class Vehicle {
 
-    private String color;
-    private String model;
-    private int year;
-    private double price;
+    protected String brand;
+
+    protected String color;
+    protected String model;
+    protected int year;
+    protected double price;
 
     public Vehicle(){}
 
@@ -67,5 +69,25 @@ public class Vehicle {
                 ", year=" + year +
                 ", price=" + price +
                 '}';
+    }
+
+    //we can use these methods for polymorphism
+    public abstract void startVehicle();
+    public abstract void drive();
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, year, price);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Vehicle vehicle = (Vehicle) obj;
+        return year == vehicle.year &&
+                Double.compare(vehicle.price, price) == 0 &&
+                Objects.equals(brand, vehicle.brand) &&
+                Objects.equals(model, vehicle.model);
     }
 }

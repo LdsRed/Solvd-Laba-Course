@@ -1,5 +1,5 @@
 package week02;
-
+import java.util.Objects;
 public class Truck extends Vehicle{
     private int loadCapacity;
     private boolean trailer;
@@ -23,5 +23,29 @@ public class Truck extends Vehicle{
 
     public void setTrailer(boolean trailer) {
         this.trailer = trailer;
+    }
+
+    @Override
+    public void startVehicle() {
+        System.out.println("Truck started.");
+    }
+
+    @Override
+    public void drive() {
+        System.out.println("Truck is moving cargo.");
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, year, price, loadCapacity);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Truck truck = (Truck) obj;
+        return loadCapacity == truck.loadCapacity;
     }
 }

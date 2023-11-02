@@ -26,6 +26,19 @@ public class Main {
 
 
         System.out.println("Car: " + car.getBrand() + " Model: " + car.getModel() + " Year: " + car.getYear() + " Color: " + car.getColor());
+
+        //Calling polymorphic methods
+        truck.startVehicle();
+        truck.drive();
+        motorcycle.startVehicle();
+        motorcycle.drive();
+
+        //Overridden methods
+        System.out.println(car.equals(motorcycle));
+        System.out.println(car.hashCode());
+        System.out.println(motorcycle.hashCode());
+
     }
+
 
 }
