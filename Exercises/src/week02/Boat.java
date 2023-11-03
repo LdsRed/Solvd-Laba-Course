@@ -15,4 +15,14 @@ public class Boat extends Vehicle{
     public void setMaxSpeed(double maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
+
+    @Override
+    public void startVehicle() {
+
+    }
+
+    @Override
+    public void drive() {
+
+    }
 }

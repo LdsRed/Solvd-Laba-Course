@@ -15,4 +15,14 @@ public class Bicycle extends Vehicle{
     public void setNumberOfGears(int numberOfGears) {
         this.numberOfGears = numberOfGears;
     }
+
+    @Override
+    public void startVehicle() {
+
+    }
+
+    @Override
+    public void drive() {
+
+    }
 }

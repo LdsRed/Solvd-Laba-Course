@@ -16,4 +16,14 @@ public class Bus extends Vehicle{
     public void setPassengerCapacity(int passengerCapacity) {
         this.passengerCapacity = passengerCapacity;
     }
+
+    @Override
+    public void startVehicle() {
+
+    }
+
+    @Override
+    public void drive() {
+
+    }
 }
