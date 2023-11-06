@@ -25,4 +25,11 @@ public class Bicycle extends Vehicle{
     public void drive() {
 
     }
+
+    @Override
+    public void move() {
+
+    }
+
+
 }

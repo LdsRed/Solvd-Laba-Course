@@ -20,6 +20,11 @@ public class Car extends Vehicle{
         this.wheels = wheel;
     }
 
+    public Car(String brand, String model, int year, double price, String color, int numberOfDoors) {
+        super(brand, model, year, price, color);
+        this.numberOfDoors = numberOfDoors;
+    }
+
     public int getNumberOfDoors() {
         return numberOfDoors;
     }
@@ -66,5 +71,10 @@ public class Car extends Vehicle{
         if (!super.equals(obj)) return false;
         Car car = (Car) obj;
         return numberOfDoors == car.numberOfDoors;
+    }
+
+    @Override
+    public void move() {
+        System.out.println("The car is moving fast!");
     }
 }

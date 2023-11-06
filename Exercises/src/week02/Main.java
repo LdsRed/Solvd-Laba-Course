@@ -1,5 +1,7 @@
 package week02;
 
+import week02.interfaces.Loadable;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -38,6 +40,30 @@ public class Main {
         System.out.println(car.hashCode());
         System.out.println(motorcycle.hashCode());
 
+
+        Vehicle vehicle1 = new SportCar("Toyota", "4X4", 2015, 8.000, "Black");
+        Vehicle vehicle2 = new Truck("Mercedes", "RX500", 2015, 8.000, "Black", 100000, true);
+        ElectricCar vehicle3 = new ElectricCar("Tesla", "X", 2023, 50.000, "Electric-Red", 4, 5, 150);
+
+
+        vehicle1.startVehicle();
+        vehicle1.move();
+
+
+        vehicle2.startVehicle();
+        vehicle2.move();
+
+        ((Loadable) vehicle2).loadCargo();
+
+
+        vehicle3.startVehicle();
+        vehicle3.move();
+        vehicle3.charge();
+        vehicle3.enableSelfDriving();
+
+        Garage.addVehicle();
+        Garage.addVehicle();
+        System.out.println("The total vehicles in the garage is: " + Garage.getNumberOfVehicles());
     }
 
 

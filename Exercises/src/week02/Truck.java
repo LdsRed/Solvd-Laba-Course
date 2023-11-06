@@ -1,6 +1,8 @@
 package week02;
+import week02.interfaces.Loadable;
+
 import java.util.Objects;
-public class Truck extends Vehicle{
+public class Truck extends Vehicle implements Loadable {
     private int loadCapacity;
     private boolean trailer;
     public Truck(String brand, String model, int year, double price, String color, int loadCapacity, boolean trailer) {
@@ -47,5 +49,15 @@ public class Truck extends Vehicle{
         if (!super.equals(obj)) return false;
         Truck truck = (Truck) obj;
         return loadCapacity == truck.loadCapacity;
+    }
+
+    @Override
+    public void loadCargo() {
+        System.out.println( this.brand + " is loading cargo..");
+    }
+
+    @Override
+    public void move() {
+        System.out.println(this.brand + " is moving slowly");
     }
 }

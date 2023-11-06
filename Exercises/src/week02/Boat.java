@@ -25,4 +25,9 @@ public class Boat extends Vehicle{
     public void drive() {
 
     }
+
+    @Override
+    public void move() {
+
+    }
 }

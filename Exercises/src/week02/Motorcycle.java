@@ -52,4 +52,9 @@ public class Motorcycle extends Vehicle{
         Motorcycle motorcycle = (Motorcycle) obj;
         return Objects.equals(type, motorcycle.type);
     }
+
+    @Override
+    public void move() {
+
+    }
 }

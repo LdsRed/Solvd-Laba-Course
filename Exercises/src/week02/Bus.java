@@ -26,4 +26,9 @@ public class Bus extends Vehicle{
     public void drive() {
 
     }
+
+    @Override
+    public void move() {
+
+    }
 }

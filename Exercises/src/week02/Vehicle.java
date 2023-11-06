@@ -1,8 +1,10 @@
 package week02;
 
+import week02.interfaces.Movable;
+
 import java.util.Objects;
 
-abstract class Vehicle {
+abstract class Vehicle  implements Movable {
 
     protected String brand;
 
