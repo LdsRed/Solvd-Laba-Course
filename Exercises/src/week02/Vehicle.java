@@ -15,6 +15,10 @@ abstract class Vehicle  implements Movable {
 
     public Vehicle(){}
 
+    public Vehicle(String brand){
+        this.setBrand(brand);
+    }
+
     public Vehicle(String brand, String model, int year, double price, String color) {
         this.brand = brand;
         this.model = model;

@@ -7,6 +7,9 @@ public class ElectricCar extends Car implements Electric, SelfDriving {
 
     private int batteryCapacity;
 
+    public ElectricCar(String brand){
+        super(brand);
+    }
     public ElectricCar(String brand, String model, int year, double price, String color, int numberOfDoors, int numberPassangers, int batteryCapacity) {
         super(brand, model, year, price, color, numberPassangers);
         this.batteryCapacity = batteryCapacity;

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-11-09T14:42:19.221956327Z</date>
+  <millis>1699540939221</millis>
+  <nanos>956327</nanos>
+  <sequence>0</sequence>
+  <logger>week02.Main</logger>
+  <level>SEVERE</level>
+  <class>week02.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Charging exception</message>
+  <exception>
+    <message>week02.exceptions.ChargingException: Charging Failed.</message>
+    <frame>
+      <class>week02.Main</class>
+      <method>main</method>
+      <line>40</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2023-11-09T14:42:19.258388393Z</date>
+  <millis>1699540939258</millis>
+  <nanos>388393</nanos>
+  <sequence>1</sequence>
+  <logger>week02.Main</logger>
+  <level>SEVERE</level>
+  <class>week02.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Self-driving exception</message>
+  <exception>
+    <message>week02.exceptions.SelfDrivingException: Self-driving mode error.</message>
+    <frame>
+      <class>week02.Main</class>
+      <method>main</method>
+      <line>57</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2023-11-09T14:42:19.259321271Z</date>
+  <millis>1699540939259</millis>
+  <nanos>321271</nanos>
+  <sequence>2</sequence>
+  <logger>week02.Main</logger>
+  <level>SEVERE</level>
+  <class>week02.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Garage exception</message>
+  <exception>
+    <message>week02.exceptions.GarageException: Error in the garage.</message>
+    <frame>
+      <class>week02.Main</class>
+      <method>main</method>
+      <line>72</line>
+    </frame>
+  </exception>
+</record>
+</log>

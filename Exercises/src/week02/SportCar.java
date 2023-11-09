@@ -5,6 +5,9 @@ import week02.interfaces.Convertible;
 public final class SportCar extends Vehicle implements Convertible {
 
 
+    public SportCar(String brand){
+        super(brand);
+    }
     public SportCar(String brand, String model, int year, double price, String color) {
         super(brand, model, year, price, color);
     }

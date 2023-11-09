@@ -10,7 +10,9 @@ public class Car extends Vehicle{
     private int numberPassengers;
 
     public Car(){}
-
+    public Car(String brand){
+        this.setBrand(brand);
+    }
     public Car(String brand, String model, int year, double price, String color,int numberOfDoors, int numberPassengers,
                Engine engine, Wheel[] wheel) {
         super(brand, model, year, price, color);

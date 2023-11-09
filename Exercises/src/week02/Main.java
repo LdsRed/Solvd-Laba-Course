@@ -1,69 +1,92 @@
 package week02;
 
+import week02.exceptions.ChargingException;
+import week02.exceptions.GarageException;
+import week02.exceptions.SelfDrivingException;
 import week02.interfaces.Loadable;
+import week02.interfaces.SelfDriving;
+
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
+
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
+
+    static {
+        try {
+            FileHandler fileHandler = new FileHandler("log.txt");
+            logger.addHandler(fileHandler);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     public static void main(String[] args) {
 
 
-        Wheel[] wheels = new Wheel[5];
-        wheels[0] = new Wheel(16, "Yokohama", 7.5);
-        wheels[1] = new Wheel(16, "Yokohama", 7.5);
-        wheels[2] = new Wheel(16, "Yokohama", 7.5);
-        wheels[3] = new Wheel(16, "Yokohama", 7.5);
-        wheels[4] = new Wheel(16, "Yokohama", 7.5);
+        try {
+             Vehicle sportCar = new SportCar("Ferrari");
+             Vehicle truck = new Truck("Mercedes");
+             ElectricCar electriCar = new ElectricCar("Tito");
+
+             //Let's simulate some exceptions
+             //Charging Exception
+            try{
+                throw new ChargingException("Charging Failed.");
+            } catch (ChargingException e) {
+                logger.log(Level.SEVERE, "Charging exception", e);
+                System.err.println("Charging exception: " + e.getMessage());
+            }
+
+            sportCar.startVehicle();
+            sportCar.move();
 
 
-        Engine toyotaEngine = new Engine(1500.4, "Strong engine");
-        Car car = new Car("Toyota", "Camry", 2022, 25000.0, "Black", 4, 5, toyotaEngine, wheels);
-
-        Motorcycle motorcycle = new Motorcycle("Honda", "CBR500R", 2021, 8000.0, "Green", "Urban", 15);
-        Truck truck = new Truck("Mercedes-Benz", "F-150", 2022, 35000.0,"White",2000, true);
-        ElectricCar electricCar = new ElectricCar("Tesla", "Model X", 2023, 80000.0,"Red",4, 5, 100);
-        Bicycle bicycle = new Bicycle("Giant", "Defy Advanced", 2022, 1500.0, "White",22);
-        Boat boat = new Boat("SACS", "Strider 15", 2022, 50000.0, "Electric-Blue",100);
-        Suv suv = new Suv("Jeep", "Grand Cherokee", 2022, 40000.0,"Diamond Black",5, 4, true);
-        Bus bus = new Bus("Mercedes", "Sprinter", 2022, 60000.0, "Diamond Red",40);
+            truck.startVehicle();
+            truck.move();
+            ((Loadable) truck).loadCargo();
 
 
-        System.out.println("Car: " + car.getBrand() + " Model: " + car.getModel() + " Year: " + car.getYear() + " Color: " + car.getColor());
-
-        //Calling polymorphic methods
-        truck.startVehicle();
-        truck.drive();
-        motorcycle.startVehicle();
-        motorcycle.drive();
-
-        //Overridden methods
-        System.out.println(car.equals(motorcycle));
-        System.out.println(car.hashCode());
-        System.out.println(motorcycle.hashCode());
+            //Lest simulate a selfdriving exception
+            try{
+                throw new SelfDrivingException("Self-driving mode error.");
+            } catch (SelfDrivingException e) {
+                logger.log(Level.SEVERE, "Self-driving exception", e);
+                System.err.println("Self-driving exception: " + e.getMessage());
+            }
 
 
-        Vehicle vehicle1 = new SportCar("Toyota", "4X4", 2015, 8.000, "Black");
-        Vehicle vehicle2 = new Truck("Mercedes", "RX500", 2015, 8.000, "Black", 100000, true);
-        ElectricCar vehicle3 = new ElectricCar("Tesla", "X", 2023, 50.000, "Electric-Red", 4, 5, 150);
 
+            electriCar.startVehicle();
+            electriCar.move();
+            electriCar.charge();
 
-        vehicle1.startVehicle();
-        vehicle1.move();
+            //Lets simulate a garage exception
 
+            try {
+                throw new GarageException("Error in the garage.");
+            } catch (GarageException e) {
+                logger.log(Level.SEVERE, "Garage exception", e);
+                System.err.println("Garage exception" + e.getMessage());
+            }
 
-        vehicle2.startVehicle();
-        vehicle2.move();
+            electriCar.enableSelfDriving();
+            Garage.addVehicle();
+            Garage.addVehicle();
 
-        ((Loadable) vehicle2).loadCargo();
+            System.out.println("Total vehicle in the garage: " + Garage.getNumberOfVehicles());
+            
 
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Unhandled exception", e);
+            e.printStackTrace();
+        }
 
-        vehicle3.startVehicle();
-        vehicle3.move();
-        vehicle3.charge();
-        vehicle3.enableSelfDriving();
-
-        Garage.addVehicle();
-        Garage.addVehicle();
-        System.out.println("The total vehicles in the garage is: " + Garage.getNumberOfVehicles());
     }
 
 

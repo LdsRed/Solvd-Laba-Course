@@ -5,6 +5,10 @@ import java.util.Objects;
 public class Truck extends Vehicle implements Loadable {
     private int loadCapacity;
     private boolean trailer;
+
+    public Truck(String brand){
+        super(brand);
+    }
     public Truck(String brand, String model, int year, double price, String color, int loadCapacity, boolean trailer) {
         super(brand, model, year, price, color);
         this.loadCapacity = loadCapacity;
