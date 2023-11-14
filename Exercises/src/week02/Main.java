@@ -1,5 +1,6 @@
 package week02;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import week02.exceptions.ChargingException;
 import week02.exceptions.GarageException;
 import week02.exceptions.SelfDrivingException;
@@ -9,82 +10,39 @@ import week02.interfaces.SelfDriving;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class Main {
 
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
-    static {
-        try {
-            FileHandler fileHandler = new FileHandler("log.txt");
-            logger.addHandler(fileHandler);
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ChargingException, SelfDrivingException, GarageException {
 
 
         try {
-             Vehicle sportCar = new SportCar("Ferrari");
-             Vehicle truck = new Truck("Mercedes");
-             ElectricCar electriCar = new ElectricCar("Tito");
+            Vehicle vehicle1 = new SportCar("Ferrari");
+            Vehicle vehicle2 = new Truck("Ford");
+            ElectricCar vehicle3 = new ElectricCar("Tesla");
 
-             //Let's simulate some exceptions
-             //Charging Exception
-            try{
-                throw new ChargingException("Charging Failed.");
-            } catch (ChargingException e) {
-                logger.log(Level.SEVERE, "Charging exception", e);
-                System.err.println("Charging exception: " + e.getMessage());
-            }
+            vehicle1.startVehicle();
+            vehicle1.move();
 
-            sportCar.startVehicle();
-            sportCar.move();
+            vehicle2.startVehicle();
+            vehicle2.move();
+            ((Truck) vehicle2).loadCargo();
 
+            vehicle3.startVehicle();
+            vehicle3.move();
+            vehicle3.charge();
+            vehicle3.enableSelfDriving();
 
-            truck.startVehicle();
-            truck.move();
-            ((Loadable) truck).loadCargo();
-
-
-            //Lest simulate a selfdriving exception
-            try{
-                throw new SelfDrivingException("Self-driving mode error.");
-            } catch (SelfDrivingException e) {
-                logger.log(Level.SEVERE, "Self-driving exception", e);
-                System.err.println("Self-driving exception: " + e.getMessage());
-            }
-
-
-
-            electriCar.startVehicle();
-            electriCar.move();
-            electriCar.charge();
-
-            //Lets simulate a garage exception
-
-            try {
-                throw new GarageException("Error in the garage.");
-            } catch (GarageException e) {
-                logger.log(Level.SEVERE, "Garage exception", e);
-                System.err.println("Garage exception" + e.getMessage());
-            }
-
-            electriCar.enableSelfDriving();
             Garage.addVehicle();
             Garage.addVehicle();
 
-            System.out.println("Total vehicle in the garage: " + Garage.getNumberOfVehicles());
-            
-
+            logger.info("Total vehicles in the garage: " + Garage.getNumberOfVehicles());
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unhandled exception", e);
-            e.printStackTrace();
+            logger.error("Unexpected exception caught: " + e.getMessage());
         }
 
     }

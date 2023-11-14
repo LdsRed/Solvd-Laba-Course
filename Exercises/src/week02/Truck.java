@@ -1,8 +1,13 @@
 package week02;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import week02.interfaces.Loadable;
 
 import java.util.Objects;
 public class Truck extends Vehicle implements Loadable {
+
+
+    private static final Logger logger = LogManager.getLogger(Truck.class);
     private int loadCapacity;
     private boolean trailer;
 
@@ -33,12 +38,12 @@ public class Truck extends Vehicle implements Loadable {
 
     @Override
     public void startVehicle() {
-        System.out.println("Truck started.");
+        logger.info("Truck started.");
     }
 
     @Override
     public void drive() {
-        System.out.println("Truck is moving cargo.");
+        logger.info("Truck is moving cargo.");
     }
 
     @Override
@@ -57,11 +62,11 @@ public class Truck extends Vehicle implements Loadable {
 
     @Override
     public void loadCargo() {
-        System.out.println( this.brand + " is loading cargo..");
+        logger.info(this.brand + " is loading cargo.");
     }
 
     @Override
     public void move() {
-        System.out.println(this.brand + " is moving slowly");
+        logger.info(this.brand + " is moving slowly");
     }
 }

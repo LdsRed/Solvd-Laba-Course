@@ -3,9 +3,12 @@ package week02;
 import week02.interfaces.Movable;
 
 import java.util.Objects;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 abstract class Vehicle  implements Movable {
 
+    private static final Logger logger = LogManager.getLogger(Vehicle.class);
     protected String brand;
 
     protected String color;

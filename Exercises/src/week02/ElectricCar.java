@@ -1,10 +1,12 @@
 package week02;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import week02.interfaces.Electric;
 import week02.interfaces.SelfDriving;
 
 public class ElectricCar extends Car implements Electric, SelfDriving {
-
+    private static final Logger logger = LogManager.getLogger(ElectricCar.class);
     private int batteryCapacity;
 
     public ElectricCar(String brand){
@@ -25,17 +27,17 @@ public class ElectricCar extends Car implements Electric, SelfDriving {
 
     @Override
     public void charge() {
-        System.out.println(brand + " is charging correctly!");
+        logger.info(brand + " is charging correctly!");
     }
 
     @Override
     public void enableSelfDriving() {
-        System.out.println(brand + " has enable self-driving mode for 50 mins.");
+        logger.info(brand + " has enable self-driving mode for 50 mins.");
     }
 
     @Override
     public void move() {
 
-        System.out.println(brand + " moves sweet as a tesla");
+        logger.info(brand + " moves sweet as a tesla");
     }
 }
