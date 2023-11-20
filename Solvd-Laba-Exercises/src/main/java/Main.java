@@ -4,12 +4,7 @@ import org.apache.logging.log4j.Logger;
 import exceptions.ChargingException;
 import exceptions.GarageException;
 import exceptions.SelfDrivingException;
-import interfaces.Loadable;
-import interfaces.SelfDriving;
 
-import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
