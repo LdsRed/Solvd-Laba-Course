@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-11-20T16:34:45 ART" name="Surefire suite" finished-at="2023-11-20T16:34:46 ART" duration-ms="277">
+    <groups>
+    </groups>
+    <test started-at="2023-11-20T16:34:45 ART" name="Surefire test" finished-at="2023-11-20T16:34:46 ART" duration-ms="277">
+      <class name="customLinkedList.CustomLinkedListTest">
+        <test-method signature="testCustomLinkedList()[pri:0, instance:customLinkedList.CustomLinkedListTest@53ca01a2]" started-at="2023-11-20T16:34:45 ART" name="testCustomLinkedList" finished-at="2023-11-20T16:34:46 ART" duration-ms="252" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCustomLinkedList -->
+      </class> <!-- customLinkedList.CustomLinkedListTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
